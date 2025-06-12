@@ -42,11 +42,11 @@ jobs:
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "." # App source code path
           api_location: "/api" # Api source code path - optional
-          output_location: "/out" # Built app content directory - optional
+          output_location: "out" # Built app content directory - optional
           app_build_command: "npm run build"
           github_id_token: ${{ steps.idtoken.outputs.result }}
+          max_wait_time: 1200
           ###### End of Repository/Build Configurations ######
-        timeout-minutes: 30
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
